@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<title>Restaurant List</title>
+</head>
+<body>
+	{% for item in stuff %}
+	<ul>
+		<li>{{item.name}}</li>
+		<li>{{item.description}}</li>
+		<li>{{item.opening_time}}</li>
+		<li>{{item.closing_time}}</li>
+	</ul>
+	{% endfor %}
+</body>
+</html>
