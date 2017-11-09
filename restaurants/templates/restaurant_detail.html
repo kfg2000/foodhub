@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-	<meta charset='UTF-8'>
-	<title>Business List</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block heading %} 
+Detail
+{% endblock heading %}
+
+{% block content %}	
+	<h1>Detail:</h1>
 	<ul>
-		<li>{{kao.name}}</li>
-		<li>{{kao.description}}</li>
-		<li>{{kao.opening_time}}</li>
-		<li>{{kao.closing_time}}</li>
+		<li>{{item.name}}</li>
+		<li>{{item.description}}</li>
+		<li>{{item.opening_time}}</li>
+		<li>{{item.closing_time}}</li>
 	</ul>
-</body>
-</html>
+{% endblock content %}
