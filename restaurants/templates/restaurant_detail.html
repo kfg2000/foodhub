@@ -11,5 +11,8 @@ Detail
 		<li>{{item.description}}</li>
 		<li>{{item.opening_time}}</li>
 		<li>{{item.closing_time}}</li>
+	{% if item.logo %}
+      <img class="img-fluid" src="{{item.logo.url}}" alt="Card image cap">
+    {% endif %} 
 	</ul>
 {% endblock content %}
