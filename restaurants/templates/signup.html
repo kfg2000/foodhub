@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block heading %} 
+Signup
+{% endblock heading %}
+
+{% block content %}	
+	<form action="{% url 'signup' %}" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input class="btn btn-success" type='submit' value='Signup Now!'>
+	</form>
+{% endblock content %}	

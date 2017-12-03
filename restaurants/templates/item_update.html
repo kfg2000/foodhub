@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block heading %} 
-Update a Restaurant
+Update an Item
 {% endblock heading %}
 
 {% block content %}	
-	<form action="{% url 'restaurant_update' restaurant_slug=item.slug %}" method="POST" enctype="multipart/form-data">
+	<form action="{% url 'item_update' item_slug=item.slug %}" method="POST" enctype="multipart/form-data">
 		{%	csrf_token %}
 		{{update.as_p}}
 		<input type='submit' value='update'>

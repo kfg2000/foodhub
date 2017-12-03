@@ -4,7 +4,9 @@
 Detail
 {% endblock heading %}
 
-{% block content %}	
+{% block content %}
+
+{% if  hour > item.opening_time and hour < item.closing_time %}
 	<h1>Detail:</h1>
 	<ul>
 		<li>{{item.name}}</li>
@@ -12,7 +14,13 @@ Detail
 		<li>{{item.opening_time}}</li>
 		<li>{{item.closing_time}}</li>
 	{% if item.logo %}
-      <img class="img-fluid" src="{{item.logo.url}}" alt="Card image cap">
-    {% endif %} 
+	  <img class="img-fluid" src="{{item.logo.url}}" alt="Card image cap">
+	{% endif %}
+		{% for object in items %}
+		<li>Item name:{{object.name}}</li>
+		{% endfor %} 
 	</ul>
+{% else %}
+	<h1>Closed...</h1>
+{% endif %}	
 {% endblock content %}

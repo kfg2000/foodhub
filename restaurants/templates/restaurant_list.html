@@ -11,6 +11,10 @@ Restaurant List
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="{% url 'restaurant_create' %}" role="button">Create</a>
   </p>
+  <form action="" method="GET">
+    <input type="text" name='q' placeholder="Search..." value="{{request.GET.q}}">
+    <input class="btn btn-primary" type="submit" value="Search">
+  </form>
 </div>
 
 <div class="row">
@@ -23,9 +27,9 @@ Restaurant List
     		<h4 class="card-title">{{item.name}}</h4>
    			<p class="card-text">{{item.description}}</p>
         <p class="card-text">Open from: {{item.opening_time}}-{{item.closing_time}}</p>
-   			<a href="{% url 'restaurant_detail' restaurant_id=item.id %}" class="btn btn-info">Detail</a>
-   			<a href="{% url 'restaurant_update' restaurant_id=item.id %}" class="btn btn-warning">Update</a>
-    		<a href="{% url 'restaurant_delete' restaurant_id=item.id %}" class="btn btn-danger">Delete</a>
+   			<a href="{% url 'restaurant_detail' restaurant_slug=item.slug %}" class="btn btn-info">Detail</a>
+   			<a href="{% url 'restaurant_update' restaurant_slug=item.slug %}" class="btn btn-warning">Update</a>
+    		<a href="{% url 'restaurant_delete' restaurant_slug=item.slug %}" class="btn btn-danger">Delete</a>
   		</div>
 	</div>
 {% endfor %}
@@ -33,7 +37,7 @@ Restaurant List
   <div class="pagination">
     <span class="step-links">
         {% if items.has_previous %}
-            <a href="?page={{ items.previous_page_number }}">previous</a>
+            <a href="?page={{ items.previous_page_number }}&q={{request.GET.q}}">previous</a>
         {% endif %}
 
         <span class="current">
@@ -41,7 +45,7 @@ Restaurant List
         </span>
 
         {% if items.has_next %}
-            <a href="?page={{ items.next_page_number }}">next</a>
+            <a href="?page={{ items.next_page_number }}&q={{request.GET.q}}">next</a>
         {% endif %}
     </span>
   </div>
